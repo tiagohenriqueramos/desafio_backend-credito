@@ -52,8 +52,8 @@ curl --request POST \
 ```
 
 ### Pré-requisitos
-- Desenvolvimento de API REST em Python;
-- Utilização do MongoDB;
+- Desenvolvimento de API REST em Java usando SpringBoot;
+- Utilização do MongoDB ou PostgreSQL;
 - Desenvolvimento de um Dockerfile/Docker-Compose.yml para rodar o projeto;
 - Documentar como rodamos o projeto no README.MD;
 
