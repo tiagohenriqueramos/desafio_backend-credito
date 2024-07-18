@@ -1,0 +1,74 @@
+package com.creditoservice.service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.creditoservice.domain.Taxa;
+import com.creditoservice.dto.ClienteApiResponseDTO;
+import com.creditoservice.dto.SimulacaoRequestDTO;
+import com.creditoservice.dto.SimulacaoResponseDTO;
+import com.creditoservice.repository.TaxaRepository;
+
+public class SimulacaoService {
+
+    private static final Logger logger = LoggerFactory.getLogger(SimulacaoService.class);
+
+
+	@Autowired
+	private ClienteApiService clienteApiService;
+
+	@Autowired
+	private TaxaRepository taxaRepository;
+
+	public Taxa getTaxaByTipo(String tipo) {
+		return taxaRepository.findByTipo(tipo)
+				.orElseThrow(() -> new RuntimeException("Taxa não encontrada para o tipo: " + tipo));
+	}
+
+	public SimulacaoResponseDTO simularEmprestimo(SimulacaoRequestDTO request) {
+		ClienteApiResponseDTO cliente = clienteApiService.getClienteByCpf(request.getCpf());
+		if (cliente == null) {
+			throw new RuntimeException("Cliente não encontrado");
+		}
+		int score = cliente.getScore();
+        logger.info("Score do cliente: {}", score);
+
+		String tipoTaxa = determinarTipoTaxa(cliente);
+		double taxa = obterTaxaJuros(tipoTaxa, request.getNumeroParcelas());
+
+		double valorFinal = calcularValorFinal(request.getValor(), taxa, request.getNumeroParcelas());
+		double valorParcelas = calcularValorParcelas(valorFinal, request.getNumeroParcelas());
+
+		return new SimulacaoResponseDTO(valorFinal, taxa, valorParcelas, request.getNumeroParcelas(), score);
+	}
+
+	private String determinarTipoTaxa(ClienteApiResponseDTO cliente) {
+		if (cliente.isNegativado()) {
+			return "NEGATIVADO";
+		} else if (cliente.getScore() > 500) {
+			return "SCORE_ALTO";
+		} else {
+			return "SCORE_BAIXO";
+		}
+	}
+
+	private double obterTaxaJuros(String tipoTaxa, int numeroParcelas) {
+		Taxa taxaJuros = getTaxaByTipo(tipoTaxa);
+
+		Double taxa = taxaJuros.getTaxas().get(numeroParcelas);
+		if (taxa == null) {
+			throw new IllegalArgumentException("Número de parcelas inválido");
+		}
+
+		return taxa;
+	}
+
+	private double calcularValorFinal(double valor, double taxa, int numeroParcelas) {
+		return valor * Math.pow(1 + taxa, numeroParcelas);
+	}
+
+	private double calcularValorParcelas(double valorFinal, int numeroParcelas) {
+		return valorFinal / numeroParcelas;
+	}
+}

@@ -1,0 +1,20 @@
+/*package com.creditoservice.config;
+import com.github.mongobee.Mongobee;
+import com.mongodb.MongoClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.core.MongoTemplate;
+
+@Configuration
+public class MongobeeConfig {
+
+    @Bean
+    public Mongobee mongobee(MongoClient mongoClient, MongoTemplate mongoTemplate) {
+        Mongobee runner = new Mongobee(mongoClient);
+        runner.setDbName("express"); 
+        runner.setChangeLogsScanPackage("com.yourpackage.changelogs"); 
+        runner.setMongoTemplate(mongoTemplate);
+        return runner;
+    }
+}
+*/

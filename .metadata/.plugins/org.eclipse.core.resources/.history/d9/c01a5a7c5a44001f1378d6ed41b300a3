@@ -1,0 +1,5 @@
+package com.creditoservice.dto;
+
+public class ClienteApiFullResponseDTO {
+
+}

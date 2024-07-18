@@ -1,0 +1,81 @@
+package com.creditoservice.dto;
+
+public class SimulacaoResponseDTO {
+    private double valorTotal;
+    private double taxaJuros;
+    private double valorParcelas;
+    private int numeroParcelas;
+    private int score;
+    private String tipoScore;
+    private String nome;
+
+    public SimulacaoResponseDTO() {
+    }
+
+    public SimulacaoResponseDTO(double valorTotal, double taxaJuros, double valorParcelas, int numeroParcelas, int score, String tipoScore, String nome) {
+        this.valorTotal = valorTotal;
+        this.taxaJuros = taxaJuros;
+        this.valorParcelas = valorParcelas;
+        this.numeroParcelas = numeroParcelas;
+        this.score = score;
+        this.tipoScore = tipoScore;
+        this.nome = nome;
+    }
+
+    // Getters and setters
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public double getTaxaJuros() {
+        return taxaJuros;
+    }
+
+    public void setTaxaJuros(double taxaJuros) {
+        this.taxaJuros = taxaJuros;
+    }
+
+    public double getValorParcelas() {
+        return valorParcelas;
+    }
+
+    public void setValorParcelas(double valorParcelas) {
+        this.valorParcelas = valorParcelas;
+    }
+
+    public int getNumeroParcelas() {
+        return numeroParcelas;
+    }
+
+    public void setNumeroParcelas(int numeroParcelas) {
+        this.numeroParcelas = numeroParcelas;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getTipoScore() {
+        return tipoScore;
+    }
+
+    public void setTipoScore(String tipoScore) {
+        this.tipoScore = tipoScore;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}

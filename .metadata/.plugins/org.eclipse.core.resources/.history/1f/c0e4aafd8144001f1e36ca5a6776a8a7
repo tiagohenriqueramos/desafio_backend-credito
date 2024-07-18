@@ -1,0 +1,17 @@
+package com.creditoservice.config;
+
+import org.flywaydb.core.Flyway;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FlywayConfig {
+
+    @Bean(initMethod = "migrate")
+     Flyway flyway() {
+        return Flyway.configure()
+                .locations("classpath:db/migration")
+                .dataSource("jdbc:mongodb://localhost:27017/express", "", "")
+                .load();
+    }
+}

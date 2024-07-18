@@ -1,0 +1,24 @@
+package com.creditoservice.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.creditoservice.dto.SimulacaoRequestDTO;
+import com.creditoservice.dto.SimulacaoResponseDTO;
+import com.creditoservice.exception.ApiResponse;
+
+public class SimuladorController {
+
+	
+	@PostMapping("/simulacao/{cpf}")
+	public ResponseEntity<ApiResponse<SimulacaoResponseDTO>> simularEmprestimo(@PathVariable String cpf,
+			@RequestBody SimulacaoRequestDTO request) {
+		request.setCpf(cpf);
+		SimulacaoResponseDTO response = simulacaoService.simularEmprestimo(request, cpf);
+		return ResponseEntity.ok()
+				.body(new ApiResponse<>(HttpStatus.OK.value(), "Simulação realizada com sucesso!", response));
+	}
+}

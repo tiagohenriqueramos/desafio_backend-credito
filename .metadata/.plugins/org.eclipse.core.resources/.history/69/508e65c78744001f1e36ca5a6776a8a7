@@ -1,0 +1,7 @@
+spring.application.name=service
+spring.data.mongodb.database=express-service
+spring.data.mongodb.port=27017
+#spring.data.mongodb.host=mongodb
+spring.data.mongodb.host=localhost
+server.port=8081
+spring.liquibase.change-log=classpath:db/changelog/db.changelog-master.yaml

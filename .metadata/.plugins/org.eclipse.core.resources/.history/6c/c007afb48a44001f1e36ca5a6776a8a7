@@ -1,0 +1,47 @@
+package com.creditoservice.db.migration;
+
+import java.util.Arrays;
+
+import org.bson.Document;
+import org.flywaydb.core.api.migration.BaseJavaMigration;
+import org.flywaydb.core.api.migration.Context;
+
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoDatabase;
+public class V1AddInitialTaxa extends BaseJavaMigration{
+
+	  @Override
+	    public void migrate(Context context) throws Exception {
+	        try (MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017")) {
+	            MongoDatabase database = mongoClient.getDatabase("express-service");
+
+	            database.createCollection("taxa");
+
+	            database.getCollection("taxa").insertMany(Arrays.asList(
+	                new Document("tipo", "NEGATIVADO")
+	                    .append("taxas", new Document()
+	                        .append("6", 0.04)
+	                        .append("12", 0.045)
+	                        .append("18", 0.05)
+	                        .append("24", 0.053)
+	                        .append("36", 0.055)),
+	                new Document("tipo", "SCORE_ALTO")
+	                    .append("taxas", new Document()
+	                        .append("6", 0.02)
+	                        .append("12", 0.025)
+	                        .append("18", 0.035)
+	                        .append("24", 0.038)
+	                        .append("36", 0.04)),
+	                new Document("tipo", "SCORE_BAIXO")
+	                    .append("taxas", new Document()
+	                        .append("6", 0.03)
+	                        .append("12", 0.035)
+	                        .append("18", 0.045)
+	                        .append("24", 0.048)
+	                        .append("36", 0.05))
+	            ));
+	        }
+	    }
+	}
+}

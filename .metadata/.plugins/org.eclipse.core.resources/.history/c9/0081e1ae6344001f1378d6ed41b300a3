@@ -1,0 +1,45 @@
+package com.creditoservice.dto;
+
+import jakarta.validation.constraints.NotBlank;
+
+public class SimulacaoRequestDTO {
+    @NotBlank(message = "CPF é obrigatorio")
+    private String cpf;
+    @NotBlank(message = "Numero de parcelas é obrigatiorio")
+    private int numeroParcelas;
+    @NotBlank(message = "Valor é obrigatorio")
+    private double valor;
+
+    public SimulacaoRequestDTO() {
+    }
+
+    public SimulacaoRequestDTO(String cpf, int numeroParcelas, double valor) {
+        this.cpf = cpf;
+        this.numeroParcelas = numeroParcelas;
+        this.valor = valor;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public int getNumeroParcelas() {
+        return numeroParcelas;
+    }
+
+    public void setNumeroParcelas(int numeroParcelas) {
+        this.numeroParcelas = numeroParcelas;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+}

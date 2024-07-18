@@ -1,0 +1,25 @@
+package com.creditoservice.config;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.creditoservice.dto.SimulacaoRequestDTO;
+import com.creditoservice.dto.SimulacaoResponseDTO;
+
+@RestController
+public class CalculoController {
+
+    @PostMapping("/calculate")
+    public SimulacaoResponseDTO calcular(@RequestBody SimulacaoRequestDTO request) {
+        // Implementar a lógica de cálculo do empréstimo
+        double valorParcela = (request.getValor() * request.getTaxaJuros()) / request.getParcelas();
+        double valorTotal = valorParcela * request.getParcelas();
+
+        SimulacaoResponseDTO response = new SimulacaoResponseDTO();
+        response.setValorParcela(valorParcela);
+        response.setValorTotal(valorTotal);
+
+        return response;
+    }
+}

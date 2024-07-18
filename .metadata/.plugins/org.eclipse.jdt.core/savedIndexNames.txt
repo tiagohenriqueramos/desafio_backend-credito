@@ -1,0 +1,7 @@
+INDEX VERSION 1.134+C:\Users\Tiago\Documents\CreditoExpress\.metadata\.plugins\org.eclipse.jdt.core
+249265595.index
+1865797976.index
+1393504827.index
+458914892.index
+1692952666.index
+1825981324.index

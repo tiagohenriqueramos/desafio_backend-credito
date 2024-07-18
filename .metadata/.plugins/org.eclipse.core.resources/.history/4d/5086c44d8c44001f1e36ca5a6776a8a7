@@ -1,0 +1,11 @@
+spring.application.name=service
+spring.data.mongodb.database=express-service
+spring.data.mongodb.port=27017
+#spring.data.mongodb.host=mongodb
+spring.data.mongodb.host=localhost
+server.port=8081
+spring.flyway.enabled=true
+spring.flyway.locspring.data.mongodb.uri=mongodb://localhost:27017/express-service
+spring.flyway.locations=classpath:db/migration
+logging.level.org.flywaydb=DEBUG
+m:src/main/resources/db/migration

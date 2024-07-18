@@ -1,0 +1,40 @@
+package com.creditoservice.dto;
+
+public class SimulacaoRequestDTO {
+    private String cpf;
+    private int numeroParcelas;
+    private double valor;
+
+    public SimulacaoRequestDTO() {
+    }
+
+    public SimulacaoRequestDTO(String cpf, int numeroParcelas, double valor) {
+        this.cpf = cpf;
+        this.numeroParcelas = numeroParcelas;
+        this.valor = valor;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public int getNumeroParcelas() {
+        return numeroParcelas;
+    }
+
+    public void setNumeroParcelas(int numeroParcelas) {
+        this.numeroParcelas = numeroParcelas;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+}

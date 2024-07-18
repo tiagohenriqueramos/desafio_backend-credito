@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\Tiago\Downloads\projeto-umpar-mongo-main"/>
+			<item value="C:\Users\Tiago\Documents\CreditoExpress\gateway"/>
+			<item value="C:\Users\Tiago\Documents\CreditoExpress\server"/>
+			<item value="C:\Users\Tiago\Documents\workspace-spring-tool-suite-4-4.23.1.RELEASE\cliente"/>
+			<item value="C:\Users\Tiago\root-project\credito-express-cliente"/>
+			<item value="C:\Users\Tiago\root-project\credito-express-service"/>
+			<item value="C:\Users\Tiago\Documents\workspace-spring-tool-suite-4-4.23.1.RELEASE\service"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="credito-express-services"/>
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

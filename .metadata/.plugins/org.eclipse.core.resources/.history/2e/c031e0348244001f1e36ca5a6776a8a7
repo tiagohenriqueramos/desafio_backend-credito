@@ -1,0 +1,5 @@
+package com.yourpackage.changelogs;
+
+public class DatabaseChangelog {
+
+}

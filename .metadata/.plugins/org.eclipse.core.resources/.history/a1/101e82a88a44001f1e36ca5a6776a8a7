@@ -1,0 +1,5 @@
+package com.creditoservice.db.migration;
+
+public class V1AddInitialTaxa {
+
+}

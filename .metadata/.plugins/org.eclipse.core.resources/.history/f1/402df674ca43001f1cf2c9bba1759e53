@@ -1,0 +1,24 @@
+package com.creditoservice.dto;
+
+public class ClienteApiResponseDTO {
+	private String nome;
+    private String cpf;
+    private String celular;
+    private int score;
+    private boolean negativado;
+    
+    
+	public ClienteApiResponseDTO() {
+	}
+
+
+	public ClienteApiResponseDTO(String nome, String cpf, String celular, int score, boolean negativado) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.celular = celular;
+		this.score = score;
+		this.negativado = negativado;
+	}
+
+}

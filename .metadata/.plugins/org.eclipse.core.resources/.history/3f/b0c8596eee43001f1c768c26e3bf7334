@@ -1,0 +1,96 @@
+package com.creditoservice.dto;
+
+
+
+public class SimulacaoRequestDTO {
+    private String cpf;
+    private int numeroParcelas;
+    private double valor;
+    private double taxaJuros;
+
+    
+    public SimulacaoRequestDTO() {
+		super();
+	}
+
+	public SimulacaoRequestDTO(String cpf, int numeroParcelas, double valor, double taxaJuros) {
+		super();
+		this.cpf = cpf;
+		this.numeroParcelas = numeroParcelas;
+		this.valor = valor;
+		this.taxaJuros = taxaJuros;
+	}
+
+	public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public int public SimulacaoResponseDTO simularEmprestimo(SimulacaoRequestDTO request) {
+        if (request.getCpf() == null || request.getCpf().isEmpty()) {
+            throw new IllegalArgumentException("CPF não pode ser vazio");
+        }
+
+        // Obter informações do cliente
+        ClienteApiResponseDTO cliente = clienteApiService.getClienteByCpf(request.getCpf());
+        if (cliente == null) {
+            throw new RuntimeException("Cliente não encontrado");
+        }
+
+        // Verificar se o cliente é negativado e obter a taxa adequada
+        double taxa = calcularTaxaJuros(cliente, request.getNumeroParcelas());
+
+        // Calcular o valor final do empréstimo
+        double valorFinal = calcularValorFinal(request.getValor(), taxa, request.getNumeroParcelas());
+
+        // Calcular o valor da parcela
+        double valorParcela = valorFinal / request.getNumeroParcelas();
+
+        // Retornar a resposta com todas as informações necessárias
+        return new SimulacaoResponseDTO(valorParcela, valorFinal, taxa, request.getNumeroParcelas());
+    }
+
+    private double calcularValorFinal(double valor, double taxa, int numeroParcelas) {
+        return valor * Math.pow(1 + taxa, numeroParcelas);
+    }
+
+    private double calcularTaxaJuros(ClienteApiResponseDTO cliente, int numeroParcelas) {
+        TaxaJuros taxaJuros;
+
+        if (cliente.isNegativado()) {
+            taxaJuros = taxaService.getTaxaByTipo("NEGATIVADO");
+        } else if (cliente.getScore() > 500) {
+            taxaJuros = taxaService.getTaxaByTipo("SCORE_ALTO");
+        } else {
+            taxaJuros = taxaService.getTaxaByTipo("SCORE_BAIXO");
+        }
+
+        return taxaJuros.getTaxas().get(numeroParcelas);
+    }
+() {
+        return numeroParcelas;
+    }
+
+    public void setNumeroParcelas(int numeroParcelas) {
+        this.numeroParcelas = numeroParcelas;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public double getTaxaJuros() {
+        return taxaJuros;
+    }
+
+    public void setTaxaJuros(double taxaJuros) {
+        this.taxaJuros = taxaJuros;
+    }
+}

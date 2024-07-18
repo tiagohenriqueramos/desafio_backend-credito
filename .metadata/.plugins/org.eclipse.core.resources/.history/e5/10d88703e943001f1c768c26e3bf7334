@@ -1,0 +1,63 @@
+package com.creditoservice.dto;
+
+public class SimulacaoRequestDTO {
+	private String cpf;
+	private String celular;
+	private double valor;
+	private int parcelas;
+	private String tipoCliente;
+
+	public SimulacaoRequestDTO() {
+	}
+
+	public SimulacaoRequestDTO(String cpf, String celular, double valor, int parcelas, String tipoCliente) {
+		super();
+		this.cpf = cpf;
+		this.celular = celular;
+		this.valor = valor;
+		this.parcelas = parcelas;
+		this.tipoCliente = tipoCliente;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	public int getParcelas() {
+		return parcelas;
+	}
+
+	public void setParcelas(int parcelas) {
+		this.parcelas = parcelas;
+	}
+
+	public String getTipoCliente() {
+		return tipoCliente;
+	}
+
+	public void setTipoCliente(String tipoCliente) {
+		this.tipoCliente = tipoCliente;
+	}
+
+	// Getters e Setters
+}

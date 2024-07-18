@@ -1,0 +1,17 @@
+package com.creditoservice.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class ClienteApiService  {
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    public ClienteResponseDTO getClienteByCpf(String cpf) {
+        String url = "http://localhost:8080/clientes/" + cpf; // Ajuste a URL conforme necessário
+        return restTemplate.getForObject(url, ClienteResponseDTO.class);
+    }
+}

@@ -1,0 +1,5 @@
+package com.creditocliente.dto;
+
+public class AuthenticationResponse {
+
+}

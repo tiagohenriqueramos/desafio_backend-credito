@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.print.Pageable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.client.RestTemplate"/>
+    <fullyQualifiedTypeName name="com.creditocliente.dto.ClienteUpdateDTO"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.EnableEurekaClient"/>
+    <fullyQualifiedTypeName name="com.creditoservice.dto.ClienteApiResponseDTO"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.classic.Logger"/>
+    <fullyQualifiedTypeName name="org.hibernate.validator.internal.util.logging.LoggerFactory"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
+    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="org.springframework.http.client.ClientHttpResponse"/>
+    <fullyQualifiedTypeName name="java.lang.Runtime"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="com.creditoservice.exception.TipoTaxaIndeterminadoException"/>
+    <fullyQualifiedTypeName name="jakarta.validation.Valid"/>
+    <fullyQualifiedTypeName name="com.creditoservice.exception.CpfInvalidoException"/>
+    <fullyQualifiedTypeName name="com.mongodb.client.MongoClient"/>
+    <fullyQualifiedTypeName name="org.flywaydb.core.api.migration.BaseJavaMigration"/>
+    <fullyQualifiedTypeName name="com.creditoservice.dto.TaxaRegisterDTO"/>
+    <fullyQualifiedTypeName name="com.creditoservice.dto.TaxaResponseDTO"/>
+    <fullyQualifiedTypeName name="javax.management.Query"/>
+    <fullyQualifiedTypeName name="com.jayway.jsonpath.Criteria"/>
+    <fullyQualifiedTypeName name="com.creditoservice.repository.TaxaRepository"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.NotBlank"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.DisplayName"/>
+    <fullyQualifiedTypeName name="com.creditoservice.exception.ApiResponse"/>
+    <fullyQualifiedTypeName name="com.creditoservice.config.security.TokenService"/>
+    <fullyQualifiedTypeName name="javax.management.relation.Role"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.index.Indexed"/>
+    <fullyQualifiedTypeName name="com.creditoservice.domain.enums.Role"/>
+    <fullyQualifiedTypeName name="com.creditoservice.exception.InvalidParameterException"/>
+    <fullyQualifiedTypeName name="com.creditoservice.exception.NotFoundException"/>
+    <fullyQualifiedTypeName name="com.creditocliente.exception.ApiResponse"/>
+    <fullyQualifiedTypeName name="com.creditocliente.config.security.TokenService"/>
+    <fullyQualifiedTypeName name="com.creditocliente.domain.enums.Role"/>
+    <fullyQualifiedTypeName name="com.creditocliente.exception.InvalidParameterException"/>
+    <fullyQualifiedTypeName name="com.creditocliente.exception.NotFoundException"/>
+</qualifiedTypeNameHistroy>

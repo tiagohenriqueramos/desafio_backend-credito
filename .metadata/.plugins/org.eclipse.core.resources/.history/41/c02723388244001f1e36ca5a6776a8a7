@@ -1,0 +1,37 @@
+package com.yourpackage.changelogs;
+
+import com.github.mongobee.changeset.ChangeLog;
+import com.github.mongobee.changeset.ChangeSet;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import com.mongodb.client.MongoCollection;
+
+@ChangeLog(order = "001")
+public class DatabaseChangelog {
+
+    @ChangeSet(order = "001", id = "createTaxasCollection", author = "your_name")
+    public void createTaxasCollection(MongoDatabase db) {
+        db.createCollection("taxas");
+        MongoCollection<Document> collection = db.getCollection("taxas");
+        collection.insertMany(Arrays.asList(
+            new Document("tipo", "NEGATIVADO")
+                .append("taxas", new Document("6", 0.04)
+                    .append("12", 0.045)
+                    .append("18", 0.05)
+                    .append("24", 0.053)
+                    .append("36", 0.055)),
+            new Document("tipo", "SCORE_ALTO")
+                .append("taxas", new Document("6", 0.02)
+                    .append("12", 0.025)
+                    .append("18", 0.35)
+                    .append("24", 0.038)
+                    .append("36", 0.04)),
+            new Document("tipo", "SCORE_BAIXO")
+                .append("taxas", new Document("6", 0.03)
+                    .append("12", 0.035)
+                    .append("18", 0.45)
+                    .append("24", 0.048)
+                    .append("36", 0.05))
+        ));
+    }
+}

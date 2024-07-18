@@ -1,0 +1,42 @@
+package com.creditoservice.dto;
+
+public class SimulacaoRequestDTO {
+	private int numeroParcelas;
+	private double valor;
+	private double taxaJuros;
+
+	
+	public SimulacaoRequestDTO() {
+	}
+
+	public SimulacaoRequestDTO(int numeroParcelas, double valor, double taxaJuros) {
+		super();
+		this.numeroParcelas = numeroParcelas;
+		this.valor = valor;
+		this.taxaJuros = taxaJuros;
+	}
+
+	public int getNumeroParcelas() {
+		return numeroParcelas;
+	}
+
+	public void setNumeroParcelas(int numeroParcelas) {
+		this.numeroParcelas = numeroParcelas;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	public double getTaxaJuros() {
+		return taxaJuros;
+	}
+
+	public void setTaxaJuros(double taxaJuros) {
+		this.taxaJuros = taxaJuros;
+	}
+}

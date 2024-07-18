@@ -1,0 +1,8 @@
+spring.application.name=service
+spring.data.mongodb.database=express-service
+spring.data.mongodb.port=27017
+#spring.data.mongodb.host=mongodb
+spring.data.mongodb.host=localhost
+calculo.service.url=http://calculo-service:8082/calculate
+
+

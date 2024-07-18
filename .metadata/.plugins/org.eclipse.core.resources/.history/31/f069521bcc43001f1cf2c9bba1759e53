@@ -1,0 +1,12 @@
+package com.creditoservice.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import com.creditoservice.domain.Taxa;
+
+@Repository
+public interface TaxaRepository extends MongoRepository<Taxa, String> {
+	Taxa findByTipo(String tipo);
+
+}

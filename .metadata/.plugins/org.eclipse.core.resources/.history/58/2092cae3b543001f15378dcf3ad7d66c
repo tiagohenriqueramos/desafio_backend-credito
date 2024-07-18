@@ -1,0 +1,51 @@
+package com.servicecreditoexpress.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/taxa")
+public class TaxaController {
+	
+	private final TaxaService taxaService;
+
+	public TaxaController(TaxaService taxaService) {
+		this.taxaService = taxaService;
+	}
+
+	@GetMapping("/buscar/{id}")
+	public ResponseEntity<ApiResponse<TaxaResponseDTO>> buscar(@PathVariable @Valid String id) {
+		TaxaResponseDTO fornecedor = taxaService.buscarTaxa(id);
+		return ResponseEntity.ok()
+				.body(new ApiResponse<>(HttpStatus.OK.value(), "Busca realizada com sucesso!", fornecedor));
+	}
+	
+	@PostMapping("/cadastrar")
+    public void cadastrar(@RequestBody @Valid TaxaRegisterDTO novaTaxa) {
+        taxaService.cadastrar(novaTaxa);
+    }
+	
+	@PutMapping("/atualizar/{id}")
+	public ResponseEntity<ApiResponse<TaxaRegisterDTO>> alterarDados(@PathVariable @Valid String id, @RequestBody @Valid TaxaRegisterDTO taxaAtualizado){
+		taxaService.alterarDados(id, taxaAtualizado);
+		return ResponseEntity.ok().body(new ApiResponse<>(HttpStatus.OK.value(),"Dados alterado com sucesso!", taxaAtualizado));
+		
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<ApiResponse<?>> deletar(@PathVariable @Valid String id) {
+		taxaService.deletar(id);
+		return ResponseEntity.ok().body(new ApiResponse<>(HttpStatus.OK.value(),"Cliente deletado com sucesso!"));
+	}
+}
