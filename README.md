@@ -20,7 +20,6 @@ Certifique-se de ter os seguintes requisitos instalados em sua máquina:
 
 Clone o repositório do projeto para sua máquina local:
 
-```sh
 git clone https://github.com/SeuUsuario/credito-express.git
 cd credito-express
 Configurar e Rodar os Serviços com Docker
@@ -29,7 +28,7 @@ O projeto utiliza MongoDB como banco de dados e contém dois serviços: cliente 
 Estrutura do Projeto
 Certifique-se de que a estrutura do projeto seja similar a esta:
 
-```
+```sh
 
 credito-express/
 │
@@ -43,7 +42,7 @@ credito-express/
 │
 ├── docker-compose.yml
 └── (outros arquivos do projeto)
-
+```
 
 Rodar o Projeto com Docker Compose
 Para rodar todos os serviços (MongoDB, cliente e serviço) usando Docker Compose, execute o seguinte comando na raiz do projeto:
