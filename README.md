@@ -1,71 +1,56 @@
-## Sobre a Crédito Express
+README.md
 
-A Crédito Express é uma fintech voltada para servir instituições financeiras. Nosso objetivo é levar TAXAS ATRATIVAS para as pessoas, a partir do uso de tecnologia de ponta.
+# Projeto Crédito Express
 
-VENHA FAZER PARTE DESSA REVOLUÇÃO FINANCEIRA!
+Este projeto é uma API de simulação de empréstimo. Ele permite que os usuários simulem empréstimos com base em suas informações de crédito.
 
+## Requisitos
 
-## Sobre o desafio
+Certifique-se de ter os seguintes requisitos instalados em sua máquina:
 
-Com o aumento dos casos de COVID-19 muitos cidadãos tiveram aumentos nos gastos e redução nos ganhos, levando a eles endividarem-se em meios que as taxas de juros são extremamente altas. Neste desafio você deve construir uma aplicação para pessoas possam simular empréstimos com as melhores taxas do mercado financeiro.
+- Java 17
+- Maven
+- Docker
+- Docker Compose
+- MongoDB Compass
 
-A aplicação deve ter uma API para o cliente informar o seu CPF e numero de celular para se identificar e depois disso ele poderá efetuar simulações de empréstimo em outra API. Para simular é necessário informar o valor do empréstimo e o número de parcelas, sendo que podem ser 6, 12, 18, 24 ou 36.
+## Configuração do Projeto
 
-Existe uma tabela de taxas, o calculo do empréstimo deve ser feito de acordo com ela. Existem 3 tipos diferentes de taxas: **negativado, score alto e score baixo**. Pessoas com score acima de 500 são consideradas com score alto nessa aplicação, pessoas sem cadastro na base recebem score 0.
+### Clone o Repositório
 
-Após obter o valor da taxa a ser aplicada para esse cliente, será necessário chamar uma API para fazer o cálculo da simulação. Os dados retornados pelo cálculo devem ser o retorno da sua API.
+Clone o repositório do projeto para sua máquina local:
 
+```sh
+git clone https://github.com/SeuUsuario/credito-express.git
+cd credito-express
+Configurar e Rodar os Serviços com Docker
+O projeto utiliza MongoDB como banco de dados e contém dois serviços: cliente e serviço. Vamos utilizar Docker Compose para rodar esses serviços.
 
-## Considerações
+Estrutura do Projeto
+Certifique-se de que a estrutura do projeto seja similar a esta:
 
-- O arquivo taxas.json possui uma coleção de taxas por característica. Os dados seguem o formato do exemplo abaixo, mas pode modificar a estrutura no seu projeto se precisar:
-
-```javascript
-  {
-	"tipo": "NEGATIVADO",
-	"taxas": {"6": 0.04, "12": 0.045, "18": 0.05, "24": 0.053, "36": 0.055}
-  }
-```
-- O arquivo clientes.json possui uma coleção de objetos que representam os clientes que já tem pré-cadastro. Abaixo temos um exemplo do formato do objeto que também pode ter a estrutura modificada caso julgue necessário.
-
-```javascript
-{
-	"nome": "Roberto Filipe Figueiredo",
-	"cpf": "41882728564",
-	"celular": "6526332774",
-	"score": 300,
-	"negativado": false
-}
 ```
 
-- Abaixo temos um exemplo de um CURL para API de cálculo.
+credito-express/
+│
+├── cliente/
+│   ├── Dockerfile
+│   └── (outros arquivos do serviço de cliente)
+│
+├── service/
+│   ├── Dockerfile
+│   └── (outros arquivos do serviço de serviço)
+│
+├── docker-compose.yml
+└── (outros arquivos do projeto)
 
-```shell
-curl --request POST \
-  --url https://us-central1-creditoexpress-dev.cloudfunctions.net/teste-backend \
-  --header 'Content-Type: application/json' \
-  --data '{
-	"numeroParcelas": 12,
-	"valor": 10000,
-	"taxaJuros": 0.04
-}'
-```
 
-### Pré-requisitos
-- Desenvolvimento de API REST em Java usando SpringBoot;
-- Utilização do MongoDB ou PostgreSQL;
-- Desenvolvimento de um Dockerfile/Docker-Compose.yml para rodar o projeto;
-- Documentar como rodamos o projeto no README.MD;
+Rodar o Projeto com Docker Compose
+Para rodar todos os serviços (MongoDB, cliente e serviço) usando Docker Compose, execute o seguinte comando na raiz do projeto:
 
-### Diferenciais/Extras
-- Implementação de Testes de unidade e/ou integração;
-- Clean code;
-- Segurança e resiliência;
-- Utilização de padrões de projeto;
-- Migrations e/ou seeders;
-- Script para execução da aplicação;
+docker-compose up --build
 
-## Pronto para começar o desafio?
+Acesse ao link http://localhost:8080/swagger-ui/index.html para ter acesso ao crud do cliente
+Acesse ao link http://localhost:8081/swagger-ui/index.html para ter acesso ao crud da taxa e aplicação simulação
 
-- Faça um "fork" deste repositório na sua conta do Github;
-- Após completar o desafio, crie um pull request nesse repositório comparando a sua branch com a master com o seu nome no título;
+Caso necessário fazer upload das tabelas, basta acessar a pasta mongo-entrypoint e importar com mongo compass.
